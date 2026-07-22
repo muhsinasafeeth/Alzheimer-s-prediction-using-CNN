@@ -17,7 +17,7 @@ st.set_page_config(
 )
 
 # -------------------------------------------------------
-# Custom Styling
+# Custom Styling — Dark Theme
 # -------------------------------------------------------
 st.markdown("""
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -28,9 +28,9 @@ html, body, [class*="css"] {
     font-family: 'Inter', sans-serif;
 }
 
-/* App background */
+/* App background — deep navy/charcoal */
 .stApp {
-    background: linear-gradient(180deg, #f4f8ff 0%, #eef2fb 40%, #f7f9fc 100%);
+    background: linear-gradient(180deg, #0F1620 0%, #121B29 45%, #0C131E 100%);
 }
 
 /* Animated gradient hero header */
@@ -39,10 +39,10 @@ html, body, [class*="css"] {
     padding: 34px 20px 26px 20px;
     border-radius: 20px;
     margin-bottom: 28px;
-    background: linear-gradient(120deg, #1565C0, #4facfe, #7b2ff7, #1565C0);
+    background: linear-gradient(120deg, #0B4F6C, #1565C0, #7b2ff7, #0B4F6C);
     background-size: 300% 300%;
     animation: gradientShift 12s ease infinite;
-    box-shadow: 0 10px 30px rgba(21, 101, 192, 0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
 @keyframes gradientShift {
@@ -57,12 +57,12 @@ html, body, [class*="css"] {
     font-weight: 700;
     color: #ffffff;
     margin: 0;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.35);
 }
 
 .sub-title {
     font-size: 16px;
-    color: rgba(255,255,255,0.9);
+    color: rgba(255,255,255,0.92);
     margin-top: 8px;
     font-weight: 400;
 }
@@ -72,7 +72,7 @@ html, body, [class*="css"] {
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     font-weight: 600;
-    color: #1a237e;
+    color: #7DD3FC;
     margin: 6px 0 14px 0;
     display: flex;
     align-items: center;
@@ -81,11 +81,11 @@ html, body, [class*="css"] {
 
 /* Card container used around images / results */
 .fade-card {
-    background: #ffffff;
+    background: #1B2434;
     border-radius: 16px;
     padding: 16px;
-    box-shadow: 0 6px 18px rgba(30, 40, 90, 0.08);
-    border: 1px solid rgba(21, 101, 192, 0.08);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(125, 211, 252, 0.14);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     animation: fadeInUp 0.5s ease both;
     margin-bottom: 18px;
@@ -93,7 +93,7 @@ html, body, [class*="css"] {
 
 .fade-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 26px rgba(30, 40, 90, 0.14);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes fadeInUp {
@@ -104,7 +104,7 @@ html, body, [class*="css"] {
 .card-caption {
     text-align: center;
     font-weight: 600;
-    color: #37474f;
+    color: #C7D2E0;
     margin-top: 10px;
     font-size: 14px;
 }
@@ -124,12 +124,12 @@ html, body, [class*="css"] {
 
 .pill-safe {
     background: linear-gradient(120deg, #11998e, #38ef7d);
-    box-shadow: 0 6px 16px rgba(17, 153, 142, 0.35);
+    box-shadow: 0 6px 16px rgba(17, 153, 142, 0.4);
 }
 
 .pill-warn {
     background: linear-gradient(120deg, #f7971e, #ff5858);
-    box-shadow: 0 6px 16px rgba(255, 88, 88, 0.35);
+    box-shadow: 0 6px 16px rgba(255, 88, 88, 0.4);
 }
 
 @keyframes popIn {
@@ -139,7 +139,7 @@ html, body, [class*="css"] {
 
 /* Confidence gauge bar */
 .gauge-track {
-    background: #e3e8f0;
+    background: #2A3548;
     border-radius: 999px;
     height: 16px;
     width: 100%;
@@ -160,27 +160,27 @@ html, body, [class*="css"] {
 
 .gauge-label {
     font-size: 13px;
-    color: #607d8b;
+    color: #9AA8BD;
     margin-bottom: 2px;
 }
 
 .raw-output {
     font-size: 13px;
-    color: #78909c;
+    color: #9AA8BD;
     margin-top: 10px;
 }
 
 /* Footer */
 .footer {
     font-size: 13px;
-    color: #90a4ae;
+    color: #8291A8;
     text-align: center;
     margin-top: 10px;
 }
 
 .footer-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, #cfd8dc, transparent);
+    background: linear-gradient(90deg, transparent, #2A3548, transparent);
     border: none;
     margin: 30px 0 16px 0;
 }
@@ -276,9 +276,9 @@ if uploaded_file is not None:
             f"""
             <div class="fade-card">
                 <span class="result-pill {pill_class}">{icon} {prediction}</span>
-                <p style="color:#546e7a; margin-top:6px;">
+                <p style="color:#B8C4D6; margin-top:6px;">
                     The uploaded MRI image was classified as
-                    <strong>{prediction}</strong> by the CNN model.
+                    <strong style="color:#E8EDF4;">{prediction}</strong> by the CNN model.
                 </p>
             </div>
             """,
@@ -294,10 +294,10 @@ if uploaded_file is not None:
                 <div class="gauge-track">
                     <div class="gauge-fill" style="width:{confidence_pct:.1f}%;"></div>
                 </div>
-                <p style="text-align:right; font-weight:600; color:#1565C0; margin-top:4px;">
+                <p style="text-align:right; font-weight:600; color:#4FC3F7; margin-top:4px;">
                     {confidence_pct:.2f}%
                 </p>
-                <p class="raw-output">Raw sigmoid output: <strong>{probability:.4f}</strong></p>
+                <p class="raw-output">Raw sigmoid output: <strong style="color:#C7D2E0;">{probability:.4f}</strong></p>
             </div>
             """,
             unsafe_allow_html=True
